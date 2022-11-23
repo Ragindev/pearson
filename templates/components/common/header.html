@@ -1,0 +1,151 @@
+<a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+    {{#each (limit banners.top_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}"
+        data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+<!-- desktop navigation -->
+
+<header class="header show-for-large-up" role="banner">
+    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+    </a>
+    <div class="container1 full-width">
+        <div class="header-inner">
+
+            <div class="logo-block">
+
+                <div class="header-logo1 header-logo--{{theme_settings.logo-position}} headerlogosection">
+                    {{> components/common/store-logo}}
+                </div>
+
+            </div>
+            <div class="header-center1 centeralignitem">
+                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+                    rel="stylesheet">
+                <div id="searchBox" class="mobile-form">
+                    <form action="/search.php" class="search-form" id="searchform" method="get">
+                        <span id="noEasy"><input class="sb-search-submit" type="submit" value="">
+                            <span class="fa fa-search"></span></span>
+                        <input style="margin-bottom: 0px;" id="sbox" name="search_query"
+                            onblur="if (this.placeholder == '') {this.placeholder = 'What are you looking for?';}"
+                            onfocus="if (this.placeholder == 'What are you looking for?') {this.placeholder = '';}"
+                            placeholder="What are you looking for?" type="text" x-webkit-speech="">
+                    </form>
+                </div>
+            </div>
+            <div class="header-right centeralignitem">
+                {{> components/common/navigation}}
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="navPages-container" id="menu" data-menu>
+        {{> components/common/navigation-menu}}
+    </div>
+</header>
+
+<!-- mobile section navigation -->
+<header class="header hide-for-large-up" role="banner">
+    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+    </a>
+    {{> components/common/navigation}}
+
+    {{#if page_type '===' 'default'}}
+    <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+        {{> components/common/store-logo}}
+    </h1>
+    {{else}}
+    <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+        {{> components/common/store-logo}}
+    </div>
+    {{/if}}
+    <div class="navPages-container" id="menu" data-menu>
+        {{> components/common/navigation-menu}}
+    </div>
+</header>
+
+
+{{{region name="header_bottom--global"}}}
+{{{region name="header_bottom"}}}
+<script>
+    // naviagation submenu close button
+    function closesubmenu(ids) {
+        $(`[data-collapsible*="${ids}"]`)[0].click()
+    }
+</script>
+<script>
+    // removing heder section for mobile 
+    if ($(window).width() < 900) {
+        $('.header.show-for-large-up').remove()
+    }
+</script>
+<script>
+    // navigation mouse hover show drop down
+    if ($(window).width() > 900) {
+        //.parent_submenu
+    // $(".navPages-list .navPages-item").mouseenter(function () {
+    //     //console.log("hover calss",$('.navPages-action',this).hasClass('parent_submenu'))
+    //     //console.log("hover calss closest",$(this).parent('.navPages-item'))
+    //     var parentclass = $(this).parent('.navPages-item')
+    //     if($('.navPages-action',this).hasClass('parent_submenu') && !$('.navPage-subMenu',this).hasClass("is-open"))
+    //     {
+    //         console.log("hover calss yes",this)
+    //     $(`.navPage-subMenu`).removeClass("is-open");
+    //     var datas = $('.navPages-action',this).attr("data-collapsible");
+    //     $("#" + datas).addClass("is-open");
+
+    //     return false;
+    //     }
+    //     else
+    //     {
+            
+    //         console.log("hover calss no",this)
+    //         if($('.navPage-subMenu',this).hasClass("is-open"))
+    //         {
+    //             console.log("navigation all open",this)
+    //         }
+    //         else
+    //         {
+    //             console.log("navigation not  open",this)
+    //         $(`.navPage-subMenu`).removeClass("is-open");
+    //         }
+    //     }
+    // });
+
+
+    // $(".navPages-list .navPages-item").on({
+    // mouseenter: function () {
+    //     //console.log("mouseenter")
+    //     if($('.navPages-action',this).hasClass('parent_submenu') && !$('.navPage-subMenu',this).hasClass("is-open"))
+    //     {
+    //        // console.log("hover calss yes",this)
+    //     $(`.navPage-subMenu`).removeClass("is-open");
+    //     var datas = $('.navPages-action',this).attr("data-collapsible");
+    //     $("#" + datas).addClass("is-open");
+
+    //     return false;
+    //     }
+    
+    // },
+    // mouseleave: function () {
+    //     //console.log("mouseleave",this)
+    //     $(`.navPage-subMenu`).removeClass("is-open");
+    //     //stuff to do on mouse leave
+    // }
+    // });
+
+    
+    }
+</script>

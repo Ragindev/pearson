@@ -1,0 +1,271 @@
+<style>
+    @media screen and (max-width: 900px) and (min-width: 60px) {
+        .colapes-footer-content {
+            display: none;
+        }
+        .footer-info article
+        {
+            margin-bottom: 0px;
+        }
+        .footer-info-col .footer-info-heading {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        }
+        .anglecolapse_footer {
+            padding-right: 5px;
+        }
+        .footer-info-list {
+            text-align: start;
+        }
+        .footer-info-heading .fa
+        {
+            transition: .5s all ease-out;
+        }
+        .footer-info-heading .fa-plus
+        {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+        .footer-info-heading .fa
+        {
+            opacity: 1;
+            transform: rotate(-90deg);
+        }
+        .footer-info-heading .fa-minus.active
+        {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+        i.fa.fa-minus.active {
+            margin-right: 5px;
+        }
+    }
+</style>
+
+{{#if banners.bottom}}
+{{#if settings.data_tag_enabled}}
+<div class="banners" data-banner-location="bottom">
+    {{#each (limit banners.bottom_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}"
+        data-position="{{this.location}}" data-name="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{else}}
+<div class="banners" data-banner-location="bottom">
+    <div class="banner">
+        {{{limit banners.bottom 1}}}
+    </div>
+</div>
+{{/if}}
+
+{{/if}}
+<footer class="footer" role="contentinfo">
+    <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
+    <div class="container">
+
+        <section class="footer-info">
+
+            <div class="footer-region-heading">
+                <h3 class="footer-heading">Browse English Language Teaching</h3>
+                {{!--
+                {{{region name="footer_region_heading--global"}}}
+                --}}
+            </div>
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                <div class="colapes-footer">
+                    <h3 class="footer-info-heading">
+                        <span class="footer-head">{{lang 'footer.navigate'}}</span>
+                        <span class="show-for-small-only text-center anglecolapse_footer">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                    </h3>
+                </div>
+                <ul class="footer-info-list colapes-footer-content">
+                    {{#each pages}}
+                    <li>
+                        <a href="{{url}}">{{name}}</a>
+                    </li>
+                    {{/each}}
+                    <li>
+                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+                <div class="colapes-footer">
+                    <h3 class="footer-info-heading">
+                        <span class="footer-head">{{lang 'footer.categories'}}</span>
+                        <span class="show-for-small-only text-center anglecolapse_footer">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                    </h3>
+                </div>
+                <ul class="footer-info-list colapes-footer-content">
+                    {{#each categories}}
+                    <li>
+                        <a href="{{url}}">{{name}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </article>
+
+            {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
+                <div class="colapes-footer">
+                    <h3 class="footer-info-heading">
+                        <span class="footer-head">{{lang 'footer.brands'}}</span>
+                        <span class="show-for-small-only text-center anglecolapse_footer">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                    </h3>
+                </div>
+                <ul class="footer-info-list colapes-footer-content">
+                    {{#each shop_by_brand}}
+                    <li>
+                        <a href="{{url}}">{{name}}</a>
+                    </li>
+                    {{/each}}
+                    <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
+                </ul>
+            </article>
+            {{/and}}
+
+            {{!--
+            {{#if settings.address}}
+            <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
+                <div class="colapes-footer">
+                    <h3 class="footer-info-heading">
+                        <span class="footer-head">{{lang 'footer.info'}}</span>
+                        <span class="show-for-small-only text-center anglecolapse_footer">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                    </h3>
+                </div>
+                <div class="colapes-footer-content">
+                <address>{{nl2br settings.address}}</address>
+                {{#if settings.phone_number}}
+                <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
+                {{/if}}
+                </div>
+            </article>
+            {{/if}}
+        --}}
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+                <div class="colapes-footer">
+                    <h3 class="footer-info-heading">
+                        <span class="footer-head">Info</span>
+                        <span class="show-for-small-only text-center anglecolapse_footer">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                    </h3>
+                </div>
+                <ul class="footer-info-list colapes-footer-content">
+                    <li>
+                        <a href="https://www.longmanhomeusa.com/about-us/" target="_blank">About Us</a>
+                    </li>
+                    <li>
+                        <a href="/customer-service/" >Ordering Information</a>
+                    </li>
+                    <li>
+                        <a href="https://www.longmanhomeusa.com/get-support/" target="_blank">Technical Support</a>
+                    </li>
+                </ul>
+            </article>
+
+            {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
+                <div class="colapes-footer">
+                    <h3 class="footer-info-heading">
+                        <span class="footer-head">{{lang 'social.connect'}}</span>
+                        <span class="show-for-small-only text-center anglecolapse_footer">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                    </h3>
+                </div>
+                <div class="colapes-footer-content">
+                {{> components/common/social-links}}
+                </div>
+            </article>
+            {{/if}}
+            {{!--
+            <article class="footer-info-col" data-section-type="newsletterSubscription">
+                {{#if settings.show_newsletter_box}}
+                {{> components/common/subscription-form}}
+                {{/if}}
+                {{> components/common/payment-icons}}
+            </article>
+            --}}
+        </section>
+        {{> components/common/payment-icons}}
+        {{#if settings.paypal_commerce_credit_message}}
+        <div class="footer-copyright">
+            <p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
+        </div>
+        {{/if}}
+        {{#if theme_settings.show_powered_by}}
+        <div class="footer-copyright">
+            <p class="powered-by">{{lang 'footer.powered_by'}} <a
+                    href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC"
+                    rel="nofollow">BigCommerce</a></p>
+        </div>
+        {{/if}}
+        {{#if theme_settings.show_copyright_footer}}
+        <div class="footer-copyright">
+            <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
+        </div>
+        {{/if}}
+    </div>
+    {{{region name="ssl_site_seal--global"}}}
+    <!-- <div id='toTop'><span><i class="fa fa-chevron-up" aria-hidden="true"></i></span></div> -->
+</footer>
+
+<!--mobile screeen navigation sticky section  navigation section -->
+<script>
+    if ($(window).width() < 800) {
+        $(".header1").css({ "position": "relative" });
+    }
+
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 0) {
+            $(".header.show-for-large-up").css({ "top": "0px", "position": "fixed" })
+            //$('.show-for-large-up .navPages-container').slideUp('500')
+        }
+        else {
+            $(".header.show-for-large-up").css({ "position": "relative" })
+            //$('.show-for-large-up .navPages-container').slideDown('500')
+        }
+    });
+</script>
+
+<script>
+    $(window).scroll(function () {
+        if ($(this).scrollTop()) {
+            $('#toTop').fadeIn();
+        } else {
+            $('#toTop').fadeOut();
+        }
+    });
+
+    $("#toTop").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 1000);
+    });
+
+</script>
+
+<!-- footer mobile screen section navigation colaps -->
+<script>
+    if ($(window).width() < 800) {
+        $('.colapes-footer').click(function () {
+            $(this).next('.colapes-footer-content').slideToggle('slow');
+            $('.anglecolapse_footer .fa ', this).toggleClass("fa-minus active  fa-plus");
+        });
+    }
+</script>
